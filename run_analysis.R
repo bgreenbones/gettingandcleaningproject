@@ -53,3 +53,4 @@ colnames(X_total) <- gsub("fBody", "freq.Body", colnames(X_total))
 
 tidySet <- aggregate(X_total[,3:length(X_total)], X_total[,1:2], mean)
 write.table(tidySet, file = "tidySet.txt", row.names = FALSE)
+tidySet

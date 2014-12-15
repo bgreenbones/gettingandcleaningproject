@@ -1,9 +1,4 @@
 
-Benjamin Greenwood
-Getting and Cleaning Data
-Project
-
-
 Original data from an accelerometer and gyroscope in a smartphone being carried on subjects' waistbands was cleaned and summarized. The summarization given is the means of every combination of variable measured, subject tested, and activity the subject was performing at the time of measurement.
 
 The following files comprise the summarized data and necessary scripts:
