@@ -50,7 +50,13 @@ colnames(X_total) <- gsub("tGravity", "time.Gravity", colnames(X_total))
 colnames(X_total) <- gsub("fBody", "freq.Body", colnames(X_total))
 
 # 5. Calculate and export a table of the means for each unique combination of subject, activity, and variable.
+# I decided to shape my data into long form so that it would be readable in a .txt file.
 
 tidySet <- aggregate(X_total[,3:length(X_total)], X_total[,1:2], mean)
+tidySet <- reshape(tidySet, direction="long", varying=colnames(tidySet)[3:length(colnames(tidySet))], v.names="Value",
+                   idvar=c("Subject","Activity"), timevar="Variable", times=colnames(tidySet)[3:length(colnames(tidySet))])
+rownames(tidySet) <- NULL
+library(dplyr)
+tidySet <- arrange(tidySet, Subject, Activity)
 write.table(tidySet, file = "tidySet.txt", row.names = FALSE)
 tidySet
